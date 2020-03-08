@@ -1,16 +1,17 @@
 
-public class GenericArray
+public class GenericArray<E>
 {
-	private int[] elements;
+	private E[] elements;
 
 	private int capacity;
 	private int size;
 
+	@SuppressWarnings("unchecked")
 	public GenericArray()
 	{
 		size = 0;
 		capacity = 10;
-		elements = new int[capacity];
+		elements = (E[]) new Object[capacity];
 	}
 
 	public int getSize()
@@ -18,12 +19,14 @@ public class GenericArray
 		return size;
 	}
 
-	public void add(int element)
+	@SuppressWarnings("unchecked")
+	public void add(E element)
 	{
 		if (capacity == size)
 		{
 			capacity *= 2;
-			int[] temp = new int[capacity];
+			E[] temp = (E[]) new Object[capacity];
+
 			for (int i = 0; i < size; i++)
 			{
 				temp[i] = elements[i];
@@ -31,6 +34,7 @@ public class GenericArray
 			elements = temp;
 		}
 		elements[size++] = element;
+
 	}
 
 	public void print()
@@ -39,7 +43,14 @@ public class GenericArray
 		{
 			for (int i = 0; i < size; i++)
 			{
-				System.out.print(elements[i] + " ");
+				if (i != size - 1)
+				{
+					System.out.print(elements[i] + ", ");
+				}
+				else
+				{
+					System.out.print(elements[i]);
+				}
 			}
 			System.out.println();
 		}

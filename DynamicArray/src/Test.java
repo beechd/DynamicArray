@@ -1,14 +1,14 @@
 
 public class Test
 {
-	GenericArray elements;
+	GenericArray<String> elements;
 
 	public Test()
 	{
-		elements = new GenericArray();
+		elements = new GenericArray<String>();
 		for (int i = 1; i <= 100; i++)
 		{
-			elements.add(i);
+			elements.add("Hello " + i);
 		}
 		elements.print();
 		System.out.print(elements.getSize());
