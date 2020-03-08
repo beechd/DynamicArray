@@ -32,13 +32,16 @@ public class GenericArray
 		}
 		elements[size++] = element;
 	}
-	
+
 	public void print()
 	{
-		for (int element : elements)
+		if (size > 0)
 		{
-			System.out.print(element + " ");
+			for (int i = 0; i < size; i++)
+			{
+				System.out.print(elements[i] + " ");
+			}
+			System.out.println();
 		}
-		System.out.println();
 	}
 }
