@@ -55,4 +55,37 @@ public class GenericArray<E>
 			System.out.println();
 		}
 	}
+
+	public E get(int index)
+	{
+		if (index >= 0 && index < size)
+		{
+			return elements[index];
+		}
+		else
+		{
+			throw new IndexOutOfBoundsException(
+					index + " is outside the size of the Dynamic Array. Size is " + size + ".");
+		}
+	}
+
+	public void remove(int index)
+	{
+		if (index >= 0 && index < size)
+		{
+			if (index != size - 1)
+			{
+				for (int i = index; i < size - 1; i++)
+				{
+					elements[i] = elements[i + 1];
+				}
+			}
+			size--;
+		}
+		else
+		{
+			throw new IndexOutOfBoundsException(
+					index + " is outside the size of the Dynamic Array. Size is " + size + ".");
+		}
+	}
 }

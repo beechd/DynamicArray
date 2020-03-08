@@ -6,10 +6,13 @@ public class Test
 	public Test()
 	{
 		elements = new GenericArray<String>();
-		for (int i = 1; i <= 100; i++)
+		for (int i = 1; i <= 20; i++)
 		{
 			elements.add("Hello " + i);
 		}
+		elements.print();
+		System.out.println(elements.get(2));
+		elements.remove(19);
 		elements.print();
 		System.out.print(elements.getSize());
 	}
